@@ -69,8 +69,7 @@ module.exports = (env, argv) => {
           test: /\.(png|jpe?g|gif|svg)$/i,
           loader: "file-loader",
           options: {
-            name(arg) {
-              console.log(arg)
+            name() {
               if (process.env.NODE_ENV === "development") {
                 return "[path][name].[ext]";
               }

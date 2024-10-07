@@ -28,11 +28,9 @@ const client = new Client({
   exchanges,
 });
 
-
-client.subscribeToDebugTarget(event => {
-  if (event.source === 'cacheExchange')
-    return;
-  console.log(event); // { type, message, operation, data, source, timestamp }
+// @ts-ignore
+client.subscribeToDebugTarget((event) => {
+  console.log({ event });
 });
 
 const ClientApp = () => {

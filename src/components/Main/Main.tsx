@@ -1,9 +1,16 @@
 import React from "react";
 import { gql, useQuery } from "urql";
 import { CategoryTile } from "@/components/CategoryTile";
+import { CountryInfo } from "@/components/CountryInfo";
 
 const MainQuery = gql`
   query MainQuery {
+    country {
+      domain
+      code
+      name
+      nameF2
+    }
     category(alias: "Dom-i-sad") {
       children {
         id
@@ -39,6 +46,9 @@ export const Main = () => {
             </div>
           );
         })}
+      </div>
+      <div className="mt-3">
+        <CountryInfo />
       </div>
     </div>
   );
